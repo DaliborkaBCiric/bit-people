@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import User from "./User";
 import UserCard from "./UserCard";
+import User from "./User";
 
-function Main() {
+function Main(props) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -15,8 +15,12 @@ function Main() {
     <div className="container">
         <div className="cards">
         {users.map((user, index) => (
-            <div class="card">
+            <div className="card">
+							{props.view === 'grid' ? 
                 <UserCard key={index} user={user} />
+								:
+								<User key={index} user={user} />
+							}
             </div>
         ))}
       </div>
