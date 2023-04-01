@@ -48,6 +48,20 @@
   display: flex;
 }
 
+.user-grid-item img{
+  width: 100%;
+}
+
+.user-profile{
+  position: relative;
+}
+
+.user-name {
+  padding-left: 20px;
+  margin-top: -12%;
+  color: #fff;
+}
+
 .user-item img {
   border-radius: 50%;
   padding: 0 20px;
@@ -58,6 +72,18 @@
 .user-details{
   display: flex;
   flex-direction: column;
+}
+
+.user-grid-details {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.user-grid-details p {
+  padding: 0px;
+  align-items: center;
+  margin: 0;
 }
 
 .user-details p{
@@ -72,4 +98,24 @@
   background-color: #ee6e73;  
   padding: 10px;
   margin-bottom: 0;
+}
+
+.card {
+  border: 1px solid #d0d0d0;
+  box-shadow: 0px 1px #d0d0d0;
+}
+
+.cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
 }

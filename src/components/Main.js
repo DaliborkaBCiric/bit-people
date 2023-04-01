@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import User from "./User";
+import UserCard from "./UserCard";
 
 function Main() {
   const [users, setUsers] = useState([]);
@@ -12,9 +13,13 @@ function Main() {
 
   return (
     <div className="container">
-      {users.map((user, index) => (
-        <User key={index} user={user} />
-      ))}
+        <div className="cards">
+        {users.map((user, index) => (
+            <div class="card">
+                <UserCard key={index} user={user} />
+            </div>
+        ))}
+      </div>
     </div>
   );
 }
