@@ -237,3 +237,8 @@ h3 {
   color: #696969;
   margin-bottom: 10px;
 }
+
+.search-container {
+  display: flex;
+  flex-direction: column
+}
