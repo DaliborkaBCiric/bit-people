@@ -16,7 +16,7 @@ const App = () => {
         return response.json()
       })
       .then(data => {
-        setUsers(data)
+        setUsers(data.results)
       })
   }
 
@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div className='root'>
       <Header changeView={setView} view={view} fetchUsers={fetchUserData}/>
-      <Main view={view} users={users} />
+      <Main view={view} users={users}/>
       <Footer />
     </div>
   );

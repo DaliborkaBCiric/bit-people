@@ -119,3 +119,22 @@
 @media (min-width: 900px) {
   .cards { grid-template-columns: repeat(3, 1fr); }
 }
+
+.search-bar {
+  margin: 20px 0px;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  width: 100%;
+  margin-left: 5px;
+  padding: 10px 0px;
+  color: #9e9e9e;
+}
+
+*:focus {
+  outline: none;
+}
