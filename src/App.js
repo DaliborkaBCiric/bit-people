@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from 'react-router-dom';
 import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
+import About from "./components/About";
 import './App.css';
 
 const App = () => {
@@ -36,13 +38,16 @@ const App = () => {
   }, [])
 
   return (
-    <div className='root'>
+    <>
       <Header changeView={setView} view={view} fetchUsers={fetchUserData} />
-      {!loading ?
-        <Main view={view} users={users} />
-        : <Loader />}
+      <Routes>
+        <Route path="/" element={!loading ?
+          <Main view={view} users={users} />
+          : <Loader />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 
