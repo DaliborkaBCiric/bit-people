@@ -5,7 +5,7 @@ function UserCard({ user }) {
 		<div className="user-grid-item" style={{ backgroundColor: user.gender === 'female' ? '#ffebee' : '#ffffff' }}>
 			<div className='user-profile'>
 				<img src={user.picture.large} alt={user.name.first} />
-				<p className='user-name'>{user.name.first.toLowerCase()}</p>
+				<p className='user-name'>{user.name.first.charAt(0).toUpperCase() + user.name.first.slice(1)}</p>
 			</div>
 			<div className="user-grid-details">
 				<p>{email.substring(0, 3) + "..." + email.slice(-3)}.{domein}</p>

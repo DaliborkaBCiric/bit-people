@@ -9,7 +9,7 @@ function User({ user }) {
       <li className="user-item">
         <img src={user.picture.large} alt={user.name.first} />
         <div className="user-details">
-          <p>{user.name.first.toLowerCase()} {user.name.last.toLowerCase()}</p>
+          <p>{user.name.first.charAt(0).toUpperCase() + user.name.first.slice(1)} {user.name.last.charAt(0).toUpperCase() + user.name.last.slice(1)}</p>
           <p><EmailIcon />{email.substring(0, 3) + "..." + email.slice(-3)}.{domein}</p>
           <p><CakeIcon />{new Date(user.dob.date).toLocaleDateString('sr-RS',
             { year: 'numeric', month: '2-digit', day: '2-digit' }).replaceAll(" ", "")
