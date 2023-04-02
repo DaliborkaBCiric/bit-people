@@ -13,9 +13,9 @@ const Header = (props) => {
           <div className="logo">
             <RefreshIcon onClick={() => props.fetchUsers()}/>
             {props.view === 'list' ?
-              <ViewModuleIcon onClick={() => props.changeView(props.view)} />
+              <ViewModuleIcon onClick={() => props.changeView("grid")} />
               :
-              <ViewListIcon onClick={() => props.changeView(props.view)} />
+              <ViewListIcon onClick={() => props.changeView("list")} />
             }
           </div>
         </div>

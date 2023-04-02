@@ -6,10 +6,7 @@ import './App.css';
 
 const App = () => {
 
-  const [view, setView] = useState('list');
-  const viewHandler = () => {
-    view === 'list' ? setView('grid') : setView('list');
-  };
+  const [view, setView] = useState(window.localStorage.getItem("view"));
 
   const [users, setUsers] = useState([])
 
@@ -24,17 +21,24 @@ const App = () => {
   }
 
   useEffect(() => {
+    setView(window.localStorage.getItem("view"));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("view", view);
+  }, [view]);
+
+  useEffect(() => {
     fetchUserData()
   }, [])
 
   return (
     <div className='root'>
-      <Header changeView={viewHandler} view={view} fetchUsers={fetchUserData}/>
+      <Header changeView={setView} view={view} fetchUsers={fetchUserData}/>
       <Main view={view} users={users} />
       <Footer />
     </div>
   );
 }
-// }
 
 export default App;
