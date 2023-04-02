@@ -26,7 +26,7 @@ function Main(props) {
 			return e.some(ew => user.name.first.toLowerCase().includes(ew.toLowerCase()));
 		})
 
-		const user_array = firstName.length > 0 ? firstName : props.users
+		const user_array = firstName && firstName.length > 0 ? firstName : props.users
 
 		const lastName = user_array.filter(user => {
 			if (e === "") return props.users
