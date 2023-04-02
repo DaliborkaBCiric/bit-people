@@ -23,11 +23,12 @@ const App = () => {
         localStorage.setItem("last_update", new Date().toLocaleString());
         setLoading(false);
         setUsers(data.results)
+        localStorage.setItem("users", JSON.stringify(data.results));
       })
   }
 
   useEffect(() => {
-    if (localStorage.getItem("users") === null) {
+    if (localStorage.getItem("users") === null || localStorage.getItem("users").length === 0) {
       localStorage.setItem("users", JSON.stringify(users));
     }
   }, [users]);
@@ -41,7 +42,7 @@ const App = () => {
   }, [view]);
 
   useEffect(() => {
-    if (localStorage.getItem("users") === null) {
+    if (localStorage.getItem("users") === null || localStorage.getItem("users").length === 0) {
       fetchUserData()
     }
   }, [])
