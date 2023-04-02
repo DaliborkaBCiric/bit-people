@@ -47,6 +47,11 @@ function Main(props) {
 		<div className="container">
 
 			<Search value={state.query} handleChange={handleChange} />
+			<div className="counter">
+				<p>
+					Male: {state.users.filter(male => male.gender === 'male').length} Female: {state.users.filter(male => male.gender === 'female').length}
+				</p>
+			</div>
 			{state.users.length > 0 ?
 				props.view === 'grid' ?
 					<div className="cards">
