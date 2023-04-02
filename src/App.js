@@ -20,21 +20,30 @@ const App = () => {
         return response.json()
       })
       .then(data => {
+        localStorage.setItem("last_update", new Date().toLocaleString());
         setLoading(false);
         setUsers(data.results)
       })
   }
 
   useEffect(() => {
-    setView(window.localStorage.getItem("view"));
+    if (localStorage.getItem("users") === null) {
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+  }, [users]);
+
+  useEffect(() => {
+    setView(localStorage.getItem("view"));
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("view", view);
+    localStorage.setItem("view", view);
   }, [view]);
 
   useEffect(() => {
-    fetchUserData()
+    if (localStorage.getItem("users") === null) {
+      fetchUserData()
+    }
   }, [])
 
   return (
@@ -42,7 +51,7 @@ const App = () => {
       <Header changeView={setView} view={view} fetchUsers={fetchUserData} />
       <Routes>
         <Route path="/" element={!loading ?
-          <Main view={view} users={users} />
+          <Main view={view} users={users.length > 0 ? users : JSON.parse(localStorage.getItem("users"))} />
           : <Loader />} />
         <Route path="/about" element={<About />} />
       </Routes>

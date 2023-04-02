@@ -122,11 +122,17 @@ h1 {
   padding: 5px;
 }
 
-.foot {
+.footer{
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #ee6e73;  
+}
+.container-foot{
   padding: 10px;
   margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5vh;
 }
 
 .card {
