@@ -2,20 +2,23 @@ import React, { useState, useEffect } from "react";
 import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Loader from './components/Loader';
 import './App.css';
 
 const App = () => {
 
   const [view, setView] = useState(window.localStorage.getItem("view"));
-
   const [users, setUsers] = useState([])
+  const [loading, setLoading] = useState(false);
 
   const fetchUserData = () => {
     fetch("https://randomuser.me/api/?results=15")
       .then(response => {
+        setLoading(true);
         return response.json()
       })
       .then(data => {
+        setLoading(false);
         setUsers(data.results)
       })
   }
@@ -34,8 +37,10 @@ const App = () => {
 
   return (
     <div className='root'>
-      <Header changeView={setView} view={view} fetchUsers={fetchUserData}/>
-      <Main view={view} users={users}/>
+      <Header changeView={setView} view={view} fetchUsers={fetchUserData} />
+      {!loading ?
+        <Main view={view} users={users} />
+        : <Loader />}
       <Footer />
     </div>
   );
