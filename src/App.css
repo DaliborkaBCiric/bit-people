@@ -1,13 +1,28 @@
-html{
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+html {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  font-size: 15px;
 }
-.root{
+
+h1 {
+  font-size: 4.2rem;
+  margin: 2.8rem 0 1.68rem;
+  line-height: 110%;
+  font-weight: 400;
+}
+
+.sub-title {
+  font-size: 2.92rem;
+  margin: 1.9466666667rem 0 1.168rem;
+  font-weight: 400;
+}
+
+.root {
   display: flex;
   min-height: 100vh;
   flex-direction: column
 }
 
-.nav{
+.nav {
   color: #fff;
   background-color: #ee6e73;
   width: 100%;
@@ -18,6 +33,7 @@ html{
   width: 1200px;
   margin: 0 auto;
   max-width: calc(100% - 20px);
+  min-height: 100vh;
 }
 
 .header {
@@ -32,13 +48,23 @@ html{
 }
 
 .right {
-  align-items: center;
   display: flex;
-  width: auto;
+  margin: 0;
+  height: 70px;
 }
 
 .right svg {
   padding: 0px 10px;
+  margin-top: 20px;
+}
+
+.right li {
+  line-height: 66px;
+  padding: 0px 5px;
+}
+
+.right li:hover {
+  background-color: rgba(0,0,0,.1);
 }
 
 .user li {
@@ -51,11 +77,11 @@ html{
   display: flex;
 }
 
-.user-grid-item img{
+.user-grid-item img {
   width: 100%;
 }
 
-.user-profile{
+.user-profile {
   position: relative;
 }
 
@@ -72,7 +98,7 @@ html{
   width: 100px;
 }
 
-.user-details{
+.user-details {
   display: flex;
   flex-direction: column;
 }
@@ -89,7 +115,7 @@ html{
   margin: 0;
 }
 
-.user-details p{
+.user-details p {
   display: inline-flex;
   align-items: center;
   margin: 0;
@@ -99,6 +125,7 @@ html{
 .footer{
   color: #fff;
   background-color: #ee6e73;  
+  margin-top: 20px;
 }
 .container-foot{
   padding: 10px;
@@ -106,6 +133,7 @@ html{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 5vh;
 }
 
 .card {
@@ -121,11 +149,15 @@ html{
 }
 
 @media (min-width: 600px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 900px) {
-  .cards { grid-template-columns: repeat(3, 1fr); }
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .search-bar {
@@ -154,59 +186,87 @@ input {
 }
 
 .sk-cube-grid .sk-cube {
-  width: 33%;
-  height: 33%;
+  width: 50px;
+  height: 50px;
   background-color: #ee6e73;
   float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
-          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+  animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
 }
+
 .sk-cube-grid .sk-cube1 {
   -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
+  animation-delay: 0.2s;
+}
+
 .sk-cube-grid .sk-cube2 {
   -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; }
+  animation-delay: 0.3s;
+}
+
 .sk-cube-grid .sk-cube3 {
   -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s; }
+  animation-delay: 0.4s;
+}
+
 .sk-cube-grid .sk-cube4 {
   -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s; }
+  animation-delay: 0.1s;
+}
+
 .sk-cube-grid .sk-cube5 {
   -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
+  animation-delay: 0.2s;
+}
+
 .sk-cube-grid .sk-cube6 {
   -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s; }
+  animation-delay: 0.3s;
+}
+
 .sk-cube-grid .sk-cube7 {
   -webkit-animation-delay: 0s;
-          animation-delay: 0s; }
+  animation-delay: 0s;
+}
+
 .sk-cube-grid .sk-cube8 {
   -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s; }
+  animation-delay: 0.1s;
+}
+
 .sk-cube-grid .sk-cube9 {
   -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s; }
+  animation-delay: 0.2s;
+}
 
 @-webkit-keyframes sk-cubeGridScaleDelay {
-  0%, 70%, 100% {
+
+  0%,
+  70%,
+  100% {
     -webkit-transform: scale3D(1, 1, 1);
-            transform: scale3D(1, 1, 1);
-  } 35% {
+    transform: scale3D(1, 1, 1);
+  }
+
+  35% {
     -webkit-transform: scale3D(0, 0, 1);
-            transform: scale3D(0, 0, 1); 
+    transform: scale3D(0, 0, 1);
   }
 }
 
 @keyframes sk-cubeGridScaleDelay {
-  0%, 70%, 100% {
+
+  0%,
+  70%,
+  100% {
     -webkit-transform: scale3D(1, 1, 1);
-            transform: scale3D(1, 1, 1);
-  } 35% {
+    transform: scale3D(1, 1, 1);
+  }
+
+  35% {
     -webkit-transform: scale3D(0, 0, 1);
-            transform: scale3D(0, 0, 1);
-  } 
+    transform: scale3D(0, 0, 1);
+  }
 }
 
 .content {
@@ -246,4 +306,13 @@ h3 {
 .search-container {
   display: flex;
   flex-direction: column
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
 }

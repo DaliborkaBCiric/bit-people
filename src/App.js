@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from 'react-router-dom';
 import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -26,7 +27,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    if (localStorage.getItem("users") === null || localStorage.getItem("users").length === 0) {
+    if (localStorage.getItem("users") === null || localStorage.getItem("users") === '[]') {
       localStorage.setItem("users", JSON.stringify(users));
     }
   }, [users]);
@@ -40,7 +41,7 @@ const App = () => {
   }, [view]);
 
   useEffect(() => {
-    if (localStorage.getItem("users") === null || localStorage.getItem("users").length === 0) {
+    if (localStorage.getItem("users") === null || localStorage.getItem("users") === '[]') {
       fetchUserData()
     }
   }, [])
