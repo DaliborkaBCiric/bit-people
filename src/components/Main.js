@@ -45,26 +45,34 @@ function Main(props) {
 	}
 	return (
 		<div className="container">
-
-			<Search value={state.query} handleChange={handleChange} />
-			{state.users && state.users.length > 0 ?
-				props.view === 'grid' ?
-					<div className="cards">
-						{state.users.map((user, index) => (
-							<div className="card" key={index}>
-								<UserCard key={index} user={user} />
-							</div>
-						))}
-					</div>
+			<div className="search-container">
+				<Search value={state.query} handleChange={handleChange} />
+				<div className="counter">
+					<p>
+						Male: { state.users && state.users.filter(male => male.gender === 'male').length} Female: {state.users && state.users.filter(male => male.gender === 'female').length}
+					</p>
+				</div>
+			</div>
+			<div>
+				{state.users && state.users.length > 0 ?
+					props.view === 'grid' ?
+						<div className="cards">
+							{state.users.map((user, index) => (
+								<div className="card" key={index}>
+									<UserCard key={index} user={user} />
+								</div>
+							))}
+						</div>
+						:
+						<div>
+							{state.users.map((user, index) => (
+								<User key={index} user={user} />
+							))}
+						</div>
 					:
-					<div>
-						{state.users.map((user, index) => (
-							<User key={index} user={user} />
-						))}
-					</div>
-				:
-				<NoResulst />
-			}
+					<NoResulst />
+				}
+			</div>
 		</div>
 	);
 }
